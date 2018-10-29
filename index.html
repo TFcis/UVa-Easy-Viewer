@@ -15,12 +15,12 @@ window.onload = function() {
 	var urlGet = decodeURIComponent(window.location.search.substring(1)).split("/");
 	probnum = urlGet[0].replace(/[^0-9]/g,"");
 	userId = urlGet[1];
-	$.getJSON("http://uhunt.felix-halim.net/api/p/num/"+probnum, loadProb);
+	$.getJSON("https://uhunt.felix-halim.net/api/p/num/"+probnum, loadProb);
 	$.get("lcat.csv", loadLcatDetail);
 	$("title").text(probnum+" - UVA Easy Viewer");
-	$("#google").attr("href","http://www.google.com/search?q=uva+"+probnum);
+	$("#google").attr("href","https://www.google.com/search?q=uva+"+probnum);
 	if(userId) $("#myUhunt").attr("href","http://uhunt.felix-halim.net/id/"+userId);
-	$("#myUdebug").attr("href","http://www.udebug.com/UVa/"+probnum);
+	$("#myUdebug").attr("href","https://www.udebug.com/UVa/"+probnum);
 	$(window).resize(windowSizeChange);
 	windowSizeChange();
 }
@@ -31,13 +31,13 @@ function loadProb(probdata) {
 	uvaUrl = "http://uva.onlinejudge.org/external/"+probnum.substring(0,probnum.length-2)+"/"+probnum+".html";
 	if(hasLcat) lcatUrl = "http://luckycat.kshs.kh.edu.tw/homework/q"+probnum+".htm";
 	
-	$("#uva").attr("href","http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem="+probid);
+	$("#uva").attr("href","https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem="+probid);
 	
 	if(hasLcat) view("lcat");
 	else view("uva");
 	
 	setInterval(function(){
-		$("#keepLogin").attr("src","http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=25");
+		$("#keepLogin").attr("src","https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=25");
 	},10*60*1000);
 	if(userId)
 		refreshVerdict();
@@ -57,7 +57,7 @@ function setOpenPage() {
 }
 function submit() {
 	//$("#contentFrame").attr("src","submit.html?"+probnum+"&"+encodeURI(probtitle));
-	$("#contentFrame").attr("src","http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=submit_problem&problemid="+probid+"&category=");
+	$("#contentFrame").attr("src","https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=submit_problem&problemid="+probid+"&category=");
 }
 function loadLcatDetail(data) {
 	data = data.split("\n");
